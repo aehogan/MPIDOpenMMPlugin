@@ -447,9 +447,9 @@ void CudaCalcMPIDForceKernel::initialize(const System& system, const MPIDForce& 
             gridSizeY = cu.findLegalFFTDimension(gridSizeY);
             gridSizeZ = cu.findLegalFFTDimension(gridSizeZ);
         } else {
-            gridSizeX = cu.findLegalFFTDimension(gridSizeX);
-            gridSizeY = cu.findLegalFFTDimension(gridSizeY);
-            gridSizeZ = cu.findLegalFFTDimension(gridSizeZ);
+            gridSizeX = cu.findLegalFFTDimension(nx);
+            gridSizeY = cu.findLegalFFTDimension(ny);
+            gridSizeZ = cu.findLegalFFTDimension(nz);
         }
         defines["EWALD_ALPHA"] = cu.doubleToString(alpha);
         defines["SQRT_PI"] = cu.doubleToString(sqrt(M_PI));
